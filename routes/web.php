@@ -25,12 +25,12 @@ Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'st
 
 // Posts and comments
 Route::prefix('posts')->namespace('Front')->group(function () {
-    Route::name('posts.display')->get('{slug}', 'PostController@show');
-    Route::name('posts.tag')->get('tag/{tag}', 'PostController@tag');
-    Route::name('posts.search')->get('', 'PostController@search');
-    Route::name('posts.comments.store')->post('{post}/comments', 'CommentController@store');
-    Route::name('posts.comments.comments.store')->post('{post}/comments/{comment}/comments', 'CommentController@store');
-    Route::name('posts.comments')->get('{post}/comments/{page}', 'CommentController@comments');
+    Route::name('posts.display')->get('{slug}', [PostController::class, 'show']);
+    Route::name('posts.tag')->get('tag/{tag}', [PostController::class, 'tag']);
+    Route::name('posts.search')->get('', [PostController::class, 'search']);
+    Route::name('posts.comments.store')->post('{post}/comments', [CommentController::class, 'store']);
+    Route::name('posts.comments.comments.store')->post('{post}/comments/{comment}/comments', [CommentController::class, 'store']);
+    Route::name('posts.comments')->get('{post}/comments/{page}', [CommentController::class, 'comments']);
 });
 
 Route::resource('comments', 'Front\CommentController', [

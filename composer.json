@@ -13,7 +13,7 @@
         "creativeorange/gravatar": "^1.0",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.4",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0"
     },
     "require-dev": {
@@ -23,7 +23,7 @@
         "fzaninotto/faker": "~1.4",
         "laravel/dusk": "^2.0",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "classmap": [
@@ -34,7 +34,9 @@
             "app/helpers.php"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
